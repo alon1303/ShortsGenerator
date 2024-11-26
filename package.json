@@ -16,21 +16,24 @@
   },
   "dependencies": {
     "@remotion/bundler": "4.0.210",
+    "@remotion/captions": "4.0.231",
     "@remotion/cli": "4.0.210",
     "@remotion/zod-types": "4.0.210",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "remotion": "4.0.210",
+    "remotion-subtitle": "^1.0.7",
+    "socket.io-client": "^4.8.1",
     "zod": "3.22.3"
   },
   "devDependencies": {
     "@remotion/eslint-config": "4.0.210",
+    "@remotion/tailwind": "4.0.210",
     "@types/react": "^18.0.26",
     "@types/web": "^0.0.143",
     "eslint": "^8.43.0",
     "prettier": "^3.2.5",
-    "@remotion/tailwind": "4.0.210",
-    "typescript": "5.4.5"
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "start": "remotion studio",

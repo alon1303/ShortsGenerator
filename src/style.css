@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.sequence {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+}
 
 .sequence {
 	position: absolute;
@@ -12,9 +21,18 @@
   text-align: center;
 	font-size: larger;
 	font-weight: bolder;
+  
 }
 .subtitle {
-	
+	position: absolute;
+	top: 50%;
+	bottom: 50%;
+	color: whitesmoke;
+	text-decoration: black;
+	font-size: 5rem;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+
 }
 .container-1 {
 	display: flex;

@@ -1,4 +1,4 @@
-import {AbsoluteFill, Sequence, Video} from 'remotion';
+import {AbsoluteFill, OffthreadVideo, Sequence, Video} from 'remotion';
 
 import {z} from 'zod';
 import {zColor} from '@remotion/zod-types';
@@ -62,7 +62,6 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 		if (subtitle.endFrame && subtitle.startFrame) {
 			return (
 				<Sequence
-				
 					key={subtitle.id}
 					from={subtitle.startFrame}
 					durationInFrames={calculateDurationInFrames(
@@ -77,17 +76,19 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 	}
 	return (
 		<AbsoluteFill className="bg-gray-100 container-1">
-			{videoUrl ? (
-				<Video src={videoUrl}></Video>
+			{/* {videoUrl ? (
+				<OffthreadVideo src={videoUrl}></OffthreadVideo>
 			) : (
 				<h1>Waiting for a new video...</h1>
-			)}
+			)} */}
 
-
-			{subtitles &&
+			{/* {subtitles &&
 				subtitles.map((subtitle) => {
 					return createSequence(subtitle);
-				})}
+				})} */}
+
+				<OffthreadVideo src='http://localhost:8080/assets/jre-clip1.mp4'></OffthreadVideo>
+				<div className='subtitle'>dsnajidbasu</div>
 		</AbsoluteFill>
 	);
 };

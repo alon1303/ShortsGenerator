@@ -2,6 +2,7 @@ import {Sequence} from 'remotion';
 import {Subtitle} from '../interfaces/interfaces';
 import './style.css';
 import {useEffect, useState} from 'react';
+import {motion} from 'motion/react';
 
 export const Captions = (fetched_subtitles: Subtitle[]) => {
 	const [subtitles, setSubtitles] = useState<Subtitle[]>(fetched_subtitles);
@@ -36,7 +37,19 @@ export const Captions = (fetched_subtitles: Subtitle[]) => {
 						subtitle.endFrame,
 					)}
 				>
-					<div className="subtitle">{subtitle.text}</div>
+					<motion.div
+						className="subtitle"
+						initial={{opacity: 0, y: 20}}
+						animate={{opacity: 1, y: 0}}
+						exit={{opacity: 0, y: -20}}
+						transition={{
+							duration: 0.5, 
+							delay: 0,
+							ease: 'easeInOut',
+						}}
+					>
+						{subtitle.text}
+					</motion.div>
 				</Sequence>
 			);
 		}

@@ -1,11 +1,10 @@
-import {AbsoluteFill, OffthreadVideo, Sequence, Video} from 'remotion';
-
+import {AbsoluteFill, OffthreadVideo, Sequence} from 'remotion';
 import {z} from 'zod';
 import {zColor} from '@remotion/zod-types';
 import {useEffect, useState} from 'react';
-import {io} from 'socket.io-client';
 import './style.css';
 import {Subtitle} from '../interfaces/interfaces';
+import {io} from 'socket.io-client';
 
 export const myCompSchema = z.object({
 	titleText: z.string(),
@@ -56,6 +55,25 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 		return () => {
 			socket.disconnect();
 		};
+
+		// setSubtitles([
+		// 	{
+		// 		id: '1',
+		// 		startTime: 0,
+		// 		endTime: 3,
+		// 		startFrame: 1,
+		// 		endFrame: 90,
+		// 		text: 'heyy joee',
+		// 	},
+		// 	{
+		// 		id: '2',
+		// 		startTime: 3,
+		// 		endTime: 5,
+		// 		startFrame: 90,
+		// 		endFrame: 150,
+		// 		text: 'how u doin',
+		// 	},
+		// ]);
 	}, []);
 
 	function createSequence(subtitle: Subtitle) {
@@ -69,26 +87,25 @@ export const MyComposition: React.FC<z.infer<typeof myCompSchema>> = ({
 						subtitle.endFrame,
 					)}
 				>
-					<div className="sequence">{subtitle.text}</div>
+					<div className="subtitle">{subtitle.text}</div>
 				</Sequence>
 			);
 		}
 	}
 	return (
-		<AbsoluteFill className="bg-gray-100 container-1">
-			{/* {videoUrl ? (
-				<OffthreadVideo src={videoUrl}></OffthreadVideo>
+		<AbsoluteFill className="bg-gray-100 video-container">
+			{videoUrl ? (
+				<OffthreadVideo src={videoUrl} className='video'></OffthreadVideo>
 			) : (
 				<h1>Waiting for a new video...</h1>
-			)} */}
+			)}
 
-			{/* {subtitles &&
+			{/* <OffthreadVideo src="http://localhost:8080/assets/jre-clip1.mp4"></OffthreadVideo> */}
+
+			{subtitles &&
 				subtitles.map((subtitle) => {
 					return createSequence(subtitle);
-				})} */}
-
-				<OffthreadVideo src='http://localhost:8080/assets/jre-clip1.mp4'></OffthreadVideo>
-				<div className='subtitle'>dsnajidbasu</div>
+				})}
 		</AbsoluteFill>
 	);
 };

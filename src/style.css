@@ -4,38 +4,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-.sequence {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: white;
-}
 
-.sequence {
-	position: absolute;
-  width: 100%;
-  height: 20rem;
-	top: 50%;
-	bottom: 50%;
-	transform: translate(-50%, -50%);
-  text-align: center;
-	font-size: larger;
-	font-weight: bolder;
-  
-}
+
 .subtitle {
 	position: absolute;
 	top: 50%;
 	bottom: 50%;
+	width: 100%;
+	height: fit-content;
 	color: whitesmoke;
+	text-align: center;
 	text-decoration: black;
-	font-size: 5rem;
-	font-family: 'Montserrat', sans-serif;
+	font-size: 3rem;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 700;
+	text-shadow: 
+    4px 4px 5px rgba(0, 0, 0, 0.8),
+    -4px -4px 5px rgba(0, 0, 0, 0.8),
+    6px 6px 10px rgba(0, 0, 0, 0.5),
+    -6px -6px 10px rgba(0, 0, 0, 0.5);
 
+
+	
 }
-.container-1 {
+
+.video-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Ensures the cropped portion isn't visible */
+}
+
+.video {
+  height: 100%; /* Fit the height of the container */
+  width: auto; /* Maintain aspect ratio */
+  position: absolute;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset for centering */
+  object-fit: cover; /* Crop to cover the area */
 }
